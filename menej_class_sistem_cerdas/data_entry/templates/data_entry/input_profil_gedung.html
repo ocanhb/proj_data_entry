@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Profil Gedung</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding-top: 80px;
+    }
+    .nav-tabs .nav-link.active {
+      background-color: #e7f1ff;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+    .section-title {
+      background-color: #e7f1ff;
+      padding: 10px;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar Tabs -->
+  <nav class="navbar bg-white fixed-top border-bottom shadow-sm">
+    <div class="container-fluid">
+      <ul class="nav nav-tabs border-0">
+        <li class="nav-item">
+          <a class="nav-link active text-primary" href="#">Profil Gedung</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#">Kalor Luar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#">Kalor Dalam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#">Infiltrasi dan Ventilasi</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#">Spesifikasi Gedung</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary" href="#">Kalkulasi Beban Kalor</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Form Konten -->
+  <div class="container mt-4">
+    <h5 class="section-title">Profil Gedung</h5>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Nama Gedung</label>
+        <input type="text" class="form-control">
+      </div>
+
+      <h6 class="section-title">Lokasi Gedung</h6>
+      <div class="mb-3">
+        <label class="form-label">Alamat</label>
+        <textarea class="form-control" rows="4"></textarea>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label class="form-label">Lintang</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Arah Lintang</label>
+          <select class="form-select">
+            <option>Lintang Utara</option>
+            <option>Lintang Selatan</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Bujur</label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Arah Bujur</label>
+          <select class="form-select">
+            <option>Bujur Barat</option>
+            <option>Bujur Timur</option>
+          </select>
+        </div>
+      </div>
+
+      <h6 class="section-title">Dimensi</h6>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label class="form-label">Panjang (m)</label>
+          <input type="text" class="form-control" placeholder="meter">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Lebar (m)</label>
+          <input type="text" class="form-control" placeholder="meter">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Tinggi (m)</label>
+          <input type="text" class="form-control" placeholder="meter">
+        </div>
+      </div>
+
+      <h6 class="section-title">Temperatur dan Kecepatan Angin</h6>
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label class="form-label">Rerata Temperatur Harian (°C)</label>
+          <input type="text" class="form-control" placeholder="Celsius">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Temperatur Target (°C)</label>
+          <input type="text" class="form-control" placeholder="Celsius">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Kecepatan Angin (m/s)</label>
+          <input type="number" class="form-control">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

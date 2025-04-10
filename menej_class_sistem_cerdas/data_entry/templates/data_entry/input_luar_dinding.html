@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Beban Peralatan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #ffffff;
+      padding-top: 80px;
+    }
+    .section-title {
+      background-color: #e7f1ff;
+      padding: 8px 15px;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+    .sub-section-title {
+      background-color: #f1f1f1;
+      padding: 8px 15px;
+      font-weight: 500;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    .table td, .table th {
+      vertical-align: middle;
+    }
+    .form-label {
+      font-size: 0.9rem;
+    }
+    select.form-select, input.form-control {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar bg-white fixed-top border-bottom shadow-sm">
+  <div class="container-fluid">
+    <ul class="nav nav-tabs border-0">
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#">Profil Gedung</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#">Kalor Luar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#">Kalor Dalam</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary active" href="#">Infiltrasi dan Ventilasi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#">Spesifikasi Gedung</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="#">Kalkulasi Beban Kalor</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Konten -->
+<div class="container mt-4">
+  <div class="section-title mb-3">Profil Gedung: Gedung Pusdiklat Lembaga Pemerintahan XXX</div>
+  <div class="section-title mb-3">Kategori Dinding</div>
+
+  <form>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Gedung</label>
+        <select class="form-select">
+          <option selected>Gedung Pusdiklat Lembaga Pemerintahan XXX</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Level Lantai</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Kategori Lapisan</label>
+        <select class="form-select">
+          <option>pokok</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Nama Ruang</label>
+        <input type="text" class="form-control" value="ruang1">
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Sisi</label>
+        <select class="form-select">
+          <option>utara</option>
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Dimensi Luas</label>
+        <input type="number" class="form-control">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Dimensi Tebal</label>
+        <input type="number" class="form-control">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Kategori Material</label>
+        <select class="form-select">
+          <option>plester semen</option>
+        </select>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Kategori Dinding</label>
+        <select class="form-select">
+          <option>Partisi</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sub-section-title">Properti Dinding Partisi</div>
+
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Rerata Temp Ruang Berdasarkan</label>
+        <input type="number" class="form-control">
+      </div>
+    </div>
+
+    <button class="btn btn-primary mb-4">Tambah</button>
+  </form>
+
+  <!-- Tabel -->
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Gedung</th>
+          <th>Level Lantai</th>
+          <th>Sisi</th>
+          <th>Luas</th>
+          <th>Tebal</th>
+          <th>Material</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gedung Pusdiklat Lembaga Pemerintahan XXX</td>
+          <td>1</td>
+          <td>utara</td>
+          <td>60.415</td>
+          <td>0.115</td>
+          <td>plester semen</td>
+          <td>
+            <button class="btn btn-success btn-sm">View</button>
+            <button class="btn btn-warning btn-sm">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+          </td>
+        </tr>
+        <!-- Baris tambahan -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

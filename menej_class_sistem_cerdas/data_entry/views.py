@@ -12,18 +12,37 @@ def set_data_entry(request):
     }
     return render(request, 'data_entry/input_data.html', context)
 
-# Saat input pengguna, simpan ke session
 def set_pengguna(request):
-    if request.method == 'POST':
+    list_pengguna = Pengguna.objects.all().order_by('-id')
+    context = None
+    form = PenggunaForm(None)
+    email_p = None
+
+    if request.method == "POST":
         form = PenggunaForm(request.POST)
         if form.is_valid():
-            pengguna = form.save()
-            request.session['pengguna_id'] = pengguna.id
-            return redirect('data_entry:set_content')
-    else:
-        form = PenggunaForm()
-    return render(request, 'data_entry/pengguna.html', {'form': form})
+            # Simpan info pengguna pada saat user klik menu sign in
+            email = form.cleaned_data['email']
+            request.session['email'] = email
+            request.session.modified = True
+            form.save()
 
+            list_pengguna = Pengguna.objects.all().order_by('-id')
+            email_p = request.session['email']
+            context = {
+                'form': form,
+                'list_pengguna': list_pengguna,
+                'email_p': email_p,
+            }
+            return render(request, 'data_entry/input_data_1.html', context)
+        return render(request, 'data_entry/input_pengguna.html', context)
+    else:
+        context = {
+            'form': form,
+            'list_pengguna': list_pengguna,
+        }
+        return render(request, 'data_entry/input_data_1.html', context)
+    
 def view_pengguna(request, id):
     try: 
         pengguna = Pengguna.objects.get(pk=id)  # Perbaiki nama model dan cara mengakses pk
