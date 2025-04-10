@@ -1,0 +1,44 @@
+{% extends 'data_entry/base.html' %}  <!-- HARUS DI BARIS PERTAMA -->
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Daftar Pengguna</h2>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Tambah Pengguna</button>
+    </form>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Alamat 1</th>
+                <th>Kota</th>
+                <th>Provinsi</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pengguna in list_pengguna %}
+            <tr>
+                <td>{{ pengguna.email }}</td>
+                <td>{{ pengguna.address_1 }}</td>
+                <td>{{ pengguna.city }}</td>
+                <td>{{ pengguna.state }}</td>
+                <td>
+                    <a href="{% url 'view_pengguna' pengguna.id %}" class="btn btn-success btn-sm">Lihat</a>
+                    <a href="{% url 'edit_pengguna' pengguna.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete_pengguna' pengguna.id %}" class="btn btn-danger btn-sm">Hapus</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">Belum ada data pengguna</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

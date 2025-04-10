@@ -1,0 +1,50 @@
+{% extends 'data_entry/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="alert alert-warning" role="alert">
+        Entry Data Pengguna
+    </div>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="alert alert-warning" role="alert">
+        Daftar Pengguna
+    </div>
+
+    <table class="table table-bordered" id="data_entry_tbl">
+        <thead>
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Alamat 1</th>
+                <th scope="col">Alamat 2</th>
+                <th scope="col">Profinsi</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pengguna in list_pengguna %}
+                <tr class="record">
+                    <td>{{ pengguna.email }}</td>
+                    <td>{{ pengguna.address_1 }}</td>
+                    <td>{{ pengguna.address_2 }}</td>
+                    <td>{{ pengguna.state }}</td>
+                    <td>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <td>
+                                <a href="{% url 'data_entry:view_pengguna' pengguna.id %}" class="btn btn-primary">View</a>
+                                <a href="{% url 'data_entry:edit_pengguna' pengguna.id %}" class="btn btn-success">Edit</a>
+                            </td>
+                            
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

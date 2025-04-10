@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Halaman Konten</h2>
+    <p>Ini adalah halaman konten yang dapat kamu isi dengan informasi atau form tambahan sesuai kebutuhan aplikasimu.</p>
+
+    <hr>
+
+    <h4>Contoh Konten:</h4>
+    <ul>
+        <li>Informasi umum pengguna</li>
+        <li>Petunjuk penggunaan sistem</li>
+        <li>Konten statis atau dinamis lainnya</li>
+    </ul>
+
+    <a href="{% url 'data_entry:set_data_pengguna' %}" class="btn btn-primary mt-3">Kembali ke Input Pengguna</a>
+</div>
+{% endblock %}

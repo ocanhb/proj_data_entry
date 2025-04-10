@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-primary">User Details</h1>
+    <table class="table table-bordered">
+        <tr><th>Email</th><td>{{ user.email }}</td></tr>
+        <tr><th>Address 1</th><td>{{ user.address1 }}</td></tr>
+        <tr><th>Address 2</th><td>{{ user.address2 }}</td></tr>
+        <tr><th>City</th><td>{{ user.city }}</td></tr>
+        <tr><th>State</th><td>{{ user.state }}</td></tr>
+        <tr><th>Zip Code</th><td>{{ user.zip_code }}</td></tr>
+        <tr><th>Date Joined</th><td>{{ user.date_joined }}</td></tr>
+    </table>
+</div>
+{% endblock %}
